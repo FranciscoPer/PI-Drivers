@@ -22,6 +22,28 @@ const getDriversHanlder = async (req, res) => {
   };
 
   
+  // const getDriverName = async (req, res) => {
+  //   const { name } = req.query;
+  //   try {
+  //     if (name) {
+  //       const driverByName = await getDriverByName(name);
+  //       if (driverByName.length === 0) {
+  //         res.status(404).json({ message: "Driver not found" });
+  //       } else {
+  //         res.status(200).json(driverByName);
+  //       }
+  //     } else {
+  //       const response = await getAllDrivers(); // Asegúrate de que getAllDrivers esté definido
+  //       if (response.length === 0) {
+  //         res.status(404).json({ message: "No drivers found" });
+  //       } else {
+  //         res.status(200).json(response);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     res.status(400).json({ error: error.message });
+  //   }
+  // };
   const getDriverName = async (req, res) => {
     const { name } = req.query;
     try {
