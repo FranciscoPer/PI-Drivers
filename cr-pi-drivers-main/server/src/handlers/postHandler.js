@@ -1,4 +1,4 @@
-const { createDriverDb } = require("../controllers/driverController")
+const { createDriverDb } = require("../controllers/createDriverController")
 
 
 const postDriversHandler = async (req, res) => {
