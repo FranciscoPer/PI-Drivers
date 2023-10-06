@@ -1,5 +1,4 @@
-const axios = require ("axios")
-const { Op } = require("sequelize");
+
 
 const {Driver, Teams } = require ("../db")
 
