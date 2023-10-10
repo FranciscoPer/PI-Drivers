@@ -1,4 +1,4 @@
-// import "./card.css"
+import "./card.css"
 import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'; // Importar PropTypes
 
@@ -6,6 +6,8 @@ const Card = ({ driver }) => {
   let name;
   let teams;
   let id = driver.id
+  const imageUrl = typeof driver.image === 'string' ? driver.image : driver.image?.url;
+  console.log("Driver en Card:", driver);
 
   if (driver.name && driver.lastName) {  // Estructura 1
       name = `${driver.name} ${driver.lastName}`;
@@ -26,13 +28,13 @@ const Card = ({ driver }) => {
     <div className='card-container'>
       {id ? 
         <Link to={`/home/${id}`}> 
-          <img src={driver.image?.url} alt={name} />
+          <img src={imageUrl} alt={name} />
           <h3>{name}</h3>
           <p>{teams}</p>
         </Link>
         :
         <>
-          <img src={driver.image?.url} alt={name} />
+          <img src={imageUrl} alt={name} />
           <h3>{name}</h3>
           <p>{teams}</p>
         </>
@@ -45,9 +47,12 @@ const Card = ({ driver }) => {
 Card.propTypes = {
   driver: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    image: PropTypes.shape({
-      url: PropTypes.string.isRequired,
-    }).isRequired,
+    image: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      }),
+    ]).isRequired,
     name: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({

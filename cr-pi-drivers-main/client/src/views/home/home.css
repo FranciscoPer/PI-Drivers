@@ -1,0 +1,81 @@
+body{
+    padding: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
+    background-image: url("https://images.unsplash.com/photo-1659203540215-bb0044083ff5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80");
+   background-repeat: no-repeat;
+    
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.7); /* Fondo oscuro con transparencia */
+    padding: 10px 30px; /* Espaciado interno */
+    border-bottom: 1px solid #333; /* Borde inferior */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    margin: 5px;
+}
+
+.top-bar select, 
+.top-bar input, 
+.top-bar button {
+    padding: 5px 15px; /* Espaciado interno */
+    border: 1px solid #e5e5e5; /* Borde */
+    border-radius: 20px; /* Bordes redondeados */
+    background: rgba(255,255,255,0.1); /* Fondo con transparencia */
+    transition: all 0.3s ease; /* Transición suave */
+    margin: 0 5px; /* Espaciado externo */
+}
+
+.top-bar select:hover, 
+.top-bar input:hover, 
+.top-bar button:hover {
+    background: rgba(255,255,255,0.2); /* Cambio en el fondo */
+    transform: scale(1.05); /* Aumento de tamaño */
+}
+
+.top-bar input:focus, 
+.top-bar select:focus {
+    border-color: #007BFF; 
+    outline: none;
+    box-shadow: 0 0 10px #007BFF; /* Sombra alrededor del control */
+}
+
+.top-bar {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    border-radius: 25px; /* Para las esquinas redondeadas */
+    background-color: #202020; /* Color de fondo un poco más claro que el contenedor */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
+
+.top-bar:hover {
+    background-color: #333; /* Color de fondo al pasar el mouse */
+}
+
+select, input, button {
+    padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    
+}
+
+input:focus, select:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 10px #007BFF;
+}
+.top-bar select:hover, 
+.top-bar input:hover, 
+.top-bar button:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+

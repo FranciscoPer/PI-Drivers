@@ -1,0 +1,6 @@
+.pagination {
+    position: absolute;
+    bottom: 10px;         /* La distancia desde el borde inferior */
+    left: 50%;            /* Centra horizontalmente */
+    transform: translateX(-50%);  /* Ajuste fino para centrar exactamente */
+}

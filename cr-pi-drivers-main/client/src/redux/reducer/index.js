@@ -68,23 +68,29 @@ const rootReducer = (state = initialState, action) => {
             case SET_NAME_ORDER: {
               let sortedDrivers = sortDriversByName(state.allDrivers, action.payload);
               sortedDrivers = sortDriversByBirthdate(sortedDrivers, state.birthdateOrder);
+          
               return {
                   ...state,
                   allDrivers: sortedDrivers,
                   nameOrder: action.payload
               };
-            }
-            
-            case SET_BIRTHDATE_ORDER: {
-              let sortedDrivers = sortDriversByName(state.allDrivers, state.nameOrder);
-              sortedDrivers = sortDriversByBirthdate(sortedDrivers, action.payload);
-              
-              return {
-                  ...state,
-                  allDrivers: sortedDrivers,
-                  birthdateOrder: action.payload
-              };
           }
+            
+          case SET_BIRTHDATE_ORDER: {
+            let sortedDrivers;
+            if (action.payload === "") {
+                sortedDrivers = [...state.driverCopy];
+            } else {
+                sortedDrivers = sortDriversByName(state.allDrivers, state.nameOrder);
+                sortedDrivers = sortDriversByBirthdate(sortedDrivers, action.payload);
+            }
+        
+            return {
+                ...state,
+                allDrivers: sortedDrivers,
+                birthdateOrder: action.payload
+            };
+        }
 
     default:
       return state;

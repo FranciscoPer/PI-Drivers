@@ -1,0 +1,35 @@
+.detail-card {
+    width: 70%;
+    margin: 40px auto;
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail-image img {
+    width: 300px; /* Ajusta según prefieras */
+    height: 400px; /* Ajusta según prefieras */
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.detail-info {
+    width: 60%; /* Puedes ajustar según lo necesites */
+}
+
+.detail-info h2, .detail-info p {
+    color: white;
+    margin-bottom: 20px;
+}
+body {
+    padding: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
+    background-image: url("https://images.unsplash.com/photo-1659203540215-bb0044083ff5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80");
+   background-repeat: no-repeat;
+}

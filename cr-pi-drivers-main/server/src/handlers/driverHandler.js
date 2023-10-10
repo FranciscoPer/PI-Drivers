@@ -6,20 +6,41 @@ const {getAllTeams} = require ("../controllers/teamsControllers")
 
 
 
+// const getDriversHanlder = async (req, res) => {
+//     try {
+//       const drivers = await getAllDrivers();
+//       const driversWithDefaultImages = drivers.map(driver => {
+//         if (!driver.image || !driver.image.url || driver.image.url.trim() === "") {
+//           driver.image = { url: "https://th.bing.com/th/id/OIF.Toe3IIjpFG7NOMYDCFa69A?pid=ImgDet&rs=1" };
+//         }
+//         return driver;
+//       });
+      
+//       return res.status(200).json(driversWithDefaultImages);
+//     } catch (error) {
+//       return res.status(400).json({ error: error.message });
+//     }
+//   };
 const getDriversHanlder = async (req, res) => {
-    try {
-      const drivers = await getAllDrivers();
-      const driversWithDefaultImages = drivers.map(driver => {
-        if (!driver.image || !driver.image.url) {
-          driver.image = { url: "https://th.bing.com/th/id/OIF.Toe3IIjpFG7NOMYDCFa69A?pid=ImgDet&rs=1" };
-        }
-        return driver;
-      });
-      return res.status(200).json(driversWithDefaultImages);
-    } catch (error) {
-      return res.status(400).json({ error: error.message });
-    }
-  };
+  try {
+    const drivers = await getAllDrivers();
+    const driversWithDefaultImages = drivers.map(driver => {
+      // Si el driver es creado por el usuario y no tiene imagen, asignar imagen por defecto
+      if (driver.created && (!driver.image || driver.image.trim() === "")) {
+        driver.image = { url: "https://images2.alphacoders.com/453/453697.jpg" };
+      }
+      // Si el driver es de la API y no tiene imagen, asignar imagen por defecto
+      else if (!driver.created && (!driver.image || !driver.image.url || driver.image.url.trim() === "")) {
+        driver.image = { url: "https://images2.alphacoders.com/453/453697.jpg" };
+      }
+      return driver;
+    });
+    
+    return res.status(200).json(driversWithDefaultImages);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
 
   
   const getDriverName = async (req, res) => {
@@ -66,10 +87,10 @@ const getDriversHanlder = async (req, res) => {
 
   const getTeamHandler = async (req, res) => {
     try {
-      const allTeams = await getAllTeams();
-      res.status(200).json(allTeams);
+        const allTeams = await getAllTeams();
+        res.status(200).json(allTeams);
     } catch (error) {
-      res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message });
     }
   };
 

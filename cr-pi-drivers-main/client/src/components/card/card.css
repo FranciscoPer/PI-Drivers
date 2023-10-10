@@ -1,0 +1,46 @@
+
+
+    .card-container {
+        width: 10%;
+        box-sizing: border-box;
+        border: 2px solid white;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin-top: 20px;
+    }
+
+    .card-container:hover {
+        transform: scale(1.05);
+    }
+
+    .card-container img {
+        width: 100%;
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        height: 80%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-container h3, .card-container p {
+        margin: 10px;
+        color: white;
+    }
+
+    .card-container p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 85%; /* o el porcentaje que mejor funcione */
+    }
+    .cards-wrapper {
+        margin-bottom: 50px; /* o el espacio que mejor funcione */
+    }
+
+    .card-container img {
+        object-fit: cover;   /* Ajusta la imagen para cubrir el espacio sin distorsionar */
+        height: 70%;        /* Establece la altura al 100% del contenedor padre */
+        width: 100%;         /* Establece el ancho al 100% del contenedor padre */
+    }

@@ -9,29 +9,25 @@ export const getFullDate = (driver) => {
 };
 
 export const filterDriversByTeam = (drivers, team) => {
-    return drivers.filter(driver => {
-      if (driver.teamName) {
-        return driver.teamName === team;
-      } else if (driver.teams) {
-        return driver.teams.split(', ').includes(team);
-      }
-      return false;
-    });
-  }
+  return drivers.filter(driver => {
+    if (driver["Teams.name"]) {  // Cambiado de driver.teamName a driver["Teams.name"]
+      return driver["Teams.name"] === team;
+    } else if (driver.teams) {
+      return driver.teams.split(', ').includes(team);
+    }
+    return false;
+  });
+}
   
 export const sortDriversByName = (drivers, order) => {
     return [...drivers].sort((a, b) => {
-      let nameA = a.name && typeof a.name === 'object' ? a.name.forename : a.name || "";
-      let nameB = b.name && typeof b.name === 'object' ? b.name.forename : b.name || "";
-      if (!nameA) return 1;  // Mueve los valores no definidos o null al final
-      if (!nameB) return -1;  // Mueve los valores no definidos o null al principio
-      if (order === 'asc') {
+        let nameA = a.name && typeof a.name === 'object' ? a.name.forename : a.name || "";
+        let nameB = b.name && typeof b.name === 'object' ? b.name.forename : b.name || "";
+        if (order === 'asc') {
           return nameA.localeCompare(nameB);
-      } else if (order === 'desc') {
-          return nameB.localeCompare(nameA);
-      }
-      return 0;
-    });
+        }
+        return nameB.localeCompare(nameA);
+      });
   }
 
 
@@ -50,4 +46,5 @@ export const sortDriversByBirthdate = (drivers, order) => {
     });
   }
 
+  
   

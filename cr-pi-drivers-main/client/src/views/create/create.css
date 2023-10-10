@@ -1,0 +1,65 @@
+.create-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.create-form-container form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-form-container input, 
+.create-form-container textarea, 
+.create-form-container button {
+    padding: 5px 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.create-form-container input:focus, 
+.create-form-container textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 10px #007BFF;
+}
+
+.create-form-container input:hover, 
+.create-form-container textarea:hover, 
+.create-form-container button:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+.create-form-container button {
+    cursor: pointer;
+    background-color: #202020;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.create-form-container button:hover {
+    background-color: #333;
+}
+
+.message {
+    padding: 10px;
+    background-color: rgba(0, 255, 0, 0.7); /* Verde con transparencia */
+    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}

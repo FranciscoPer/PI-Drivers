@@ -1,10 +1,10 @@
-// import "./cards.css"
+import "./cards.css"
 import PropTypes from 'prop-types'; 
 import Card from "../card/card";
 
 const Cards = ({ allDrivers }) => {
     return (
-      <div>
+      <div className='cards-container'>
         {allDrivers.map((driver, index) => (
           <Card key={index} driver={driver} />
         ))}
