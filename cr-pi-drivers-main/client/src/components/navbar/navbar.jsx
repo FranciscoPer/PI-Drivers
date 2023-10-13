@@ -6,7 +6,7 @@ const Navbar = ({ handleChange, handleSubmit }) => {
     <div className='nav-box'>
       <form onSubmit={handleSubmit} className="search-container">
         <input 
-          placeholder='Buscar' 
+          placeholder='Search' 
           type='search' 
           onChange={handleChange} 
           className="search-input"

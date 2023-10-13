@@ -72,32 +72,32 @@ return (
     
 
     <div className="top-bar">
-      <label>Selecciona un equipo:</label>
+      <label>Select Team:</label>
       <select onChange={handleTeamChange}>
-        <option value="">Todos los equipos</option>
+        <option value="">All Teams</option>
         {teams.map((team, index) => (
           <option key={index} value={team}>{team}</option>
         ))}
       </select>
 
-      <label>Selecciona una fuente:</label>
+      <label>Select a Source:</label>
       <select onChange={handleSourceChange}>
-        <option value="">Todas las fuentes</option>
-        <option value="database">Base de Datos</option>
+        <option value="">All Sources</option>
+        <option value="database">Data Base</option>
         <option value="api">API</option>
       </select>
 
-      <label>Ordena por nombre:</label>
+      <label>Sort by name:</label>
       <select onChange={handleNameOrderChange}>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
       </select>
 
-      <label>Ordena por fecha de nacimiento:</label>
+      <label>Sort by birthdate:</label>
       <select onChange={handleBirthdateOrderChange}>
-        <option value="">Orden Predeterminado</option>
-        <option value="asc">Fecha de Nacimiento (Ascendente)</option>
-        <option value="desc">Fecha de Nacimiento (Descendente)</option>
+        <option value="">Default Order</option>
+        <option value="asc">Birthdate (Ascending)</option>
+        <option value="desc">Birthdate (Descending)</option>
       </select>
     </div>
 

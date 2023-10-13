@@ -56,31 +56,30 @@ const Create = () => {
     
         // VALIDACIONES
         if (!formData.name || !formData.lastName || !formData.nationality || !formData.image|| !formData.birthDate) {
-            alert("Todos los campos son obligatorios, excepto descripción.");
-            return;
-        }
-    
-        const isAlphabetical = (str) => /^[a-zA-Z\s]*$/.test(str);
-    
-        if (!isAlphabetical(formData.name)) {
-            alert("El campo nombre solo puede contener letras y espacios.");
-            return;
-        }
-    
-        if (!isAlphabetical(formData.lastName)) {
-            alert("El campo apellido solo puede contener letras y espacios.");
-            return;
-        }
-    
-        if (!isAlphabetical(formData.nationality)) {
-            alert("El campo nacionalidad solo puede contener letras y espacios.");
+            alert("All fields are required except description.");
             return;
         }
         
-    
+        const isAlphabetical = (str) => /^[a-zA-Z\s]*$/.test(str);
+        
+        if (!isAlphabetical(formData.name)) {
+            alert("The name field can only contain letters and spaces.");
+            return;
+        }
+        
+        if (!isAlphabetical(formData.lastName)) {
+            alert("The last name field can only contain letters and spaces.");
+            return;
+        }
+        
+        if (!isAlphabetical(formData.nationality)) {
+            alert("The nationality field can only contain letters and spaces.");
+            return;
+        }
+        
         const date = new Date(formData.birthDate);
         if (!isValidDate(date)) {
-            alert("Formato de fecha de nacimiento no válido.");
+            alert("Invalid birthdate format.");
             return;
         }
     
@@ -115,25 +114,25 @@ const Create = () => {
 
     return (
         <div className="create-form-container">
-            {message && <div className="message">{message}</div>}
-            
-            <form onSubmit={handleSubmit}>
-                <input name="name" placeholder="Nombre" onChange={handleChange} value={formData.name} required />
-                <input name="lastName" placeholder="Apellido" onChange={handleChange} value={formData.lastName} required />
-                <input name="nationality" placeholder="Nacionalidad" onChange={handleChange} value={formData.nationality} required />
-                <input name="image" placeholder="URL de la imagen" onChange={handleChange} value={formData.image} required />
-                <input type="date" name="birthDate" placeholder="Fecha de Nacimiento" onChange={handleChange} value={formData.birthDate} required />
-                <textarea name="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
-                <label>Equipo:</label>
-                <select name="teamName" value={formData.teamName} onChange={handleChange} multiple >
-    <option value="" disabled>Selecciona un equipo</option>
-    {teams.map(team => (
-        <option key={team} value={team}>{team}</option>
-    ))}
-</select>
-<button type="submit" disabled={!areFieldsComplete()}>Crear Driver</button>
-            </form>
-        </div>
+        {message && <div className="message">{message}</div>}
+        
+        <form onSubmit={handleSubmit}>
+            <input name="name" placeholder="First Name" onChange={handleChange} value={formData.name} required />
+            <input name="lastName" placeholder="Last Name" onChange={handleChange} value={formData.lastName} required />
+            <input name="nationality" placeholder="Nationality" onChange={handleChange} value={formData.nationality} required />
+            <input name="image" placeholder="Image URL" onChange={handleChange} value={formData.image} required />
+            <input type="date" name="birthDate" placeholder="Birth Date" onChange={handleChange} value={formData.birthDate} required />
+            <textarea name="description" placeholder="Description" onChange={handleChange} value={formData.description}></textarea>
+            <label>Team:</label>
+            <select name="teamName" value={formData.teamName} onChange={handleChange} multiple >
+                <option value="" disabled>Select a team</option>
+                {teams.map(team => (
+                    <option key={team} value={team}>{team}</option>
+                ))}
+            </select>
+            <button type="submit" disabled={!areFieldsComplete()}>Create Driver</button>
+        </form>
+    </div>
     )
 }
 

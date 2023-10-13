@@ -28,10 +28,11 @@ const Landing = () => {
 
     return (
         <div className="carousel-container">
+            <h1 className="top-title">Welcome to F1 World</h1>
             <img src={images[currentImageIndex]} alt="carousel" className="carousel-image" />
             <button onClick={prevImage} className="carousel-button prev">←</button>
             <button onClick={nextImage} className="carousel-button next">→</button>
-            <Link to="/home" className="home-button">Ir al Inicio</Link>
+            <Link to="/home" className="home-button">Home</Link>
         </div>
     );
 };

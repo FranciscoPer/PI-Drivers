@@ -61,3 +61,24 @@
 .home-button:hover {
     background-color: rgba(0, 0, 0, 0.9);
 }
+.top-title {
+    position: fixed; /* Fixed Position */
+    top: 0; /* At the Top */
+    left: 50%; /* Center Horizontally */
+    transform: translateX(-50%); /* Necessary Adjustment for Perfect Centering */
+    z-index: 1000;
+    font-size: 36px; /* Large Font Size */
+    font-weight: bold; /* Bold */
+    text-transform: uppercase; /* All Capital Letters */
+    color: #ffffff; /* White Text Color */
+    background-color: #202020; /* Similar Background Color as top-bar */
+    border: 1px solid #333; /* Border */
+    padding: 10px 30px; /* Padding */
+    border-radius: 25px; /* Rounded Corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for Depth */
+    transition: background-color 0.3s; /* Smooth Transition */
+   }
+
+.top-title:hover {
+    background-color: #333; /* Hover Background Color */
+}
