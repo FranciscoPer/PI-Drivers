@@ -1,4 +1,4 @@
-body{
+.body{
     padding: 20px;
     font-family:'Times New Roman', Times, serif;
     font-size: medium;
@@ -11,7 +11,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(0,0,0,0.7); /* Fondo oscuro con transparencia */
+    background: wjoit; /* Fondo oscuro con transparencia */
     padding: 10px 30px; /* Espaciado interno */
     border-bottom: 1px solid #333; /* Borde inferior */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */

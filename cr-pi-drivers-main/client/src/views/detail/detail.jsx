@@ -19,7 +19,7 @@ const Detail = () => {
         })
         .catch(error => {
             console.error("There was an error fetching the driver:", error);
-            window.alert('Ocurrió un error al obtener los detalles del conductor.');
+            window.alert('No hay drivers con ese ID.');
         });
      }, [id]);
 

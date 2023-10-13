@@ -21,30 +21,35 @@ const Home = () => {
     return () => dispatch(clearDriversDetail());
   }, [dispatch]);
 
-  const handleTeamChange = e => {
-    const selectedTeam = e.target.value;
-    dispatch(setTeamFilter(selectedTeam)); // Aquí enviamos la acción para filtrar por equipo.
+  const handleTeamChange = event => {
+    const selectedTeam = event.target.value;
+    dispatch(setTeamFilter(selectedTeam));
+    setCurrentPage(1); // Aquí enviamos la acción para filtrar por equipo.
   };
 
-  const handleChange = e => setSearchDriver(e.target.value);
+  const handleChange = event => setSearchDriver(event.target.value);
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     dispatch(getDriversByName(searchDriver));
+    setCurrentPage(1);
   };
 
-  const handleSourceChange = (e) => {
-    const selectedSource = e.target.value;
+  const handleSourceChange = (event) => {
+    const selectedSource = event.target.value;
     dispatch(setSourceFilter(selectedSource));
+    setCurrentPage(1);
 };
 
-const handleNameOrderChange = (e) => {
-  const selectedOrder = e.target.value;
+const handleNameOrderChange = (event) => {
+  const selectedOrder = event.target.value;
   dispatch(setNameOrder(selectedOrder));
+  setCurrentPage(1);
 };
 
-const handleBirthdateOrderChange = (e) => {
-  dispatch(setBirthdateOrder(e.target.value));
+const handleBirthdateOrderChange = (event) => {
+  dispatch(setBirthdateOrder(event.target.value));
+  setCurrentPage(1);
 };
 
 const [currentPage, setCurrentPage] = useState(1);

@@ -11,14 +11,21 @@ const Create = () => {
         image: '',
         birthDate: '',
         description: '',    
-        teamName: ''
+        teamName: []
     };
     const [formData, setFormData] = useState(initialState);
     const [message, setMessage] = useState(null);
     const [teams, setTeams] = useState([]);
     const handleChange = (e) => {
+    if (e.target.name === "teamName") {
+        const selectedTeams = [...e.target.options]
+            .filter(option => option.selected)
+            .map(option => option.value);
+        setFormData({ ...formData, teamName: selectedTeams });
+    } else {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    }
+};
     useEffect(() => {
         const fetchTeams = async () => {
             try {
@@ -34,9 +41,13 @@ const Create = () => {
     const isValidDate = (d) => {
         return d instanceof Date && !isNaN(d);
     }
+    const areFieldsComplete = () => {
+        return formData.name && formData.lastName && formData.nationality && formData.image && formData.birthDate;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
     
         const preparedData = { ...formData };
         if (typeof preparedData.image === 'string') {
@@ -105,7 +116,7 @@ const Create = () => {
     return (
         <div className="create-form-container">
             {message && <div className="message">{message}</div>}
-            <form onSubmit={handleSubmit}></form>
+            
             <form onSubmit={handleSubmit}>
                 <input name="name" placeholder="Nombre" onChange={handleChange} value={formData.name} required />
                 <input name="lastName" placeholder="Apellido" onChange={handleChange} value={formData.lastName} required />
@@ -114,13 +125,13 @@ const Create = () => {
                 <input type="date" name="birthDate" placeholder="Fecha de Nacimiento" onChange={handleChange} value={formData.birthDate} required />
                 <textarea name="description" placeholder="Descripción" onChange={handleChange} value={formData.description}></textarea>
                 <label>Equipo:</label>
-<select name="teamName" value={formData.teamName} onChange={handleChange}>
+                <select name="teamName" value={formData.teamName} onChange={handleChange} multiple >
     <option value="" disabled>Selecciona un equipo</option>
     {teams.map(team => (
         <option key={team} value={team}>{team}</option>
     ))}
 </select>
-                <button type="submit">Crear Driver</button>
+<button type="submit" disabled={!areFieldsComplete()}>Crear Driver</button>
             </form>
         </div>
     )

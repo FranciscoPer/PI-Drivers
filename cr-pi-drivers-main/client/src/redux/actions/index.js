@@ -65,6 +65,7 @@ export const getDriversByName = (name) => {
             });
         } catch (error) {
             console.error("Hubo un error al obtener los datos: ", error);
+            window.alert('No hay drivers con ese Name.');
             
         }
     };

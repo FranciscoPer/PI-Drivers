@@ -3,9 +3,9 @@ import "./pagination.css"
 const Pagination = ({ currentPage, totalPages, handlePrevPage, handleNextPage }) => {
     return (
         <div className='pagination'>
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
+            <button onClick={handlePrevPage} disabled={currentPage === 1}>Prev</button>
             <span>{currentPage} de {totalPages}</span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}>Siguiente</button>
+            <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
         </div>
     );
 };

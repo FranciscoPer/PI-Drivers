@@ -4,8 +4,7 @@ const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
 const path = require('path');
-const driver = require("./models/driver");
-const teams = require("./models/teams");
+
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
